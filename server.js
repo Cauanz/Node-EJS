@@ -4,13 +4,44 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-   res.render('index');
+   const items = [
+      {
+         title: 'D',
+         message: 'emais'
+      },
+      {
+         title: 'E',
+         message: 'special'
+      },
+      {
+         title: 'M',
+         message: 'astro'
+      },
+      {
+         title: 'A',
+         message: 'stro'
+      },
+      {
+         title: 'I',
+         message: 'stro'
+      },
+      {
+         title: 'S',
+         message: 'al'
+      }
+   ];
+
+   const subtitle = "Uma linguagem de criação de paginas HTML usando Javascript"
+   res.render("pages/index", {
+      qualities: items,
+      subtitle: subtitle
+   });
 })
 
 app.get('/sobre', (req, res) => {
-   res.render('about');
+   res.render('pages/about');
 })
 
 app.listen(8080);
 
-console.log("Rodando");
+console.log("Server Rodando");
